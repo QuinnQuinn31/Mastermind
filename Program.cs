@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 //Quinn M
 namespace Mastermind
 {
@@ -31,7 +31,8 @@ namespace Mastermind
                     intVal = guess[a];
                     guessArray[a] = intVal-48;
                 }
-                Console.WriteLine(string.Join("",guessArray));
+
+                //Console.WriteLine(string.Join("",password));
                 //Comparing digit by digit guess to password returning the string of answers for hints.
                 for (var i = 0; i < 4; i++)
                 {
@@ -44,7 +45,13 @@ namespace Mastermind
                 //Game status check
                 guessesLeft--;
                 Console.WriteLine("You have {0}  guesses left.", guessesLeft);
-                if (guessesLeft==0 || t=="++++")
+                Console.WriteLine(string.Join("", t));
+                if (t=="++++")
+                {
+                    gameOver = true;
+                    Console.WriteLine("You win!");
+                }
+                else if (guessesLeft == 0)
                 {
                     gameOver = true;
                     Console.WriteLine("Sorry you ran out of guesses.");
